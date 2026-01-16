@@ -8,17 +8,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step one
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
       - name: step two
         run: env | sort
 
   job-two:
     name: second job
     runs-on: windows-latest
+    needs: job-one          # <- This makes job-two wait for job-one
     steps:
       - name: step one
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
       - name: step two
         run: "Get-ChildItem Env: | Sort-Object Name"
+
+  job-three:
+    name: third job
+    runs-on: ubuntu-latest
+    needs: [job-one, job-two]   # <- This waits for both job-one & job-two
+    steps:
+      - name: step one
+        run: echo "This is job three, running after job one & two"
