@@ -8,17 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step one
-        run: echo "This is step one of job one"
+        uses: actions/checkout@v3
 
       - name: step two
-        run: echo "This is step two of job one"
+        run: env | sort
 
   job-two:
     name: second job
     runs-on: windows-latest
     steps:
       - name: step one
-        run: echo "This is step one of job two"
+        uses: actions/checkout@v3
 
       - name: step two
-        run: echo "This is step two of job two"
+        run: "Get-ChildItem Env: | Sort-Object Name"
