@@ -3,8 +3,22 @@ name: first
 on: [push]
 
 jobs:
-  build:
+  job-one:
+    name: first job
     runs-on: ubuntu-latest
     steps:
-      - name: Print message
-        run: echo "My first GitHub Actions workflow"
+      - name: step one
+        run: echo "This is step one of job one"
+
+      - name: step two
+        run: echo "This is step two of job one"
+
+  job-two:
+    name: second job
+    runs-on: windows-latest
+    steps:
+      - name: step one
+        run: echo "This is step one of job two"
+
+      - name: step two
+        run: echo "This is step two of job two"
