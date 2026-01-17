@@ -1,0 +1,1 @@
+[![Create Artifacts](https://github.com/tanishka1410/lab6-devops/actions/workflows/create-artifacts.yml/badge.svg)](https://github.com/tanishka1410/lab6-devops/actions/workflows/create-artifacts.yml)
