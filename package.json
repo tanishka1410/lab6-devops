@@ -5,3 +5,4 @@
     "build": "bun build random-number-generator.js --compile --outfile random-number-generator-linux"
   }
 }
+
