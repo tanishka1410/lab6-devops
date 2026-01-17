@@ -1,0 +1,15 @@
+name: Secret Demo
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use secret
+        env:
+          MY_SECRET_VALUE: ${{ secrets.MY_SECRET }}
+        run: echo "Secret is set"
