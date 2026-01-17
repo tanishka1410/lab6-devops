@@ -1,15 +1,22 @@
-name: Secret Demo
+name: first
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Use secret
+      - name: Step 2 – Print message
+        run: echo "Hello, world!"
+
+      - name: Step 3 – Use environment variable
         env:
-          MY_SECRET_VALUE: ${{ secrets.MY_SECRET }}
-        run: echo "Secret is set"
+          MY_NAME: Tanishka
+        run: echo "Hello $MY_NAME"
